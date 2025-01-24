@@ -1,0 +1,22 @@
+000101190314/* FUNCTION:  UTILITY TO FIND STRINGS IN LIBRARIES                   */
+000102181002/* DEVELOPER: ALVARO CARREÑO C.                                      */
+000103190314/* DATE:      MARZO DEL 2019                                         */
+000104181002/*                                                                   */
+000200210707             PGM        PARM(&LIB &FILE &MBR &TYPE &TXT)
+000201190313
+000202190315             DCL        VAR(&LIB)   TYPE(*CHAR) LEN(10)
+000203190315             DCL        VAR(&FILE)  TYPE(*CHAR) LEN(10)
+000204190315             DCL        VAR(&MBR)   TYPE(*CHAR) LEN(10)
+000205210707             DCL        VAR(&TYPE)  TYPE(*CHAR) LEN(10)
+000206210707             DCL        VAR(&TXT)   TYPE(*CHAR) LEN(40)
+000207210707             DCL        VAR(&VAR)   TYPE(*CHAR) LEN(45)
+000208190315
+000216190315             RUNSQL SQL('INSERT INTO QTEMP.FUEW010 +
+000217190315                             VALUES(''' || &LIB |< ''',+
+000218190315                                    ''' || &FILE |< ''',+
+000219190315                                    ''' || &MBR |< ''',+
+000220190315                                    ''' || &TYPE |< ''',+
+000221190315                                    ''' || &TXT |< ''')') +
+000222190315                          COMMIT(*NC)
+000225190313
+003100000000             ENDPGM

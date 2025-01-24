@@ -1,0 +1,8 @@
+001300190909     A          R TOOLSF01R
+001301190909     A            USER          10A         TEXT('USUARIO        ')
+001302190909     A            MODULO        10A         TEXT('MODULO         ')
+001303190909      *                                        'FUENTES'
+001304190909      *                                        'FTP2'
+001305190909      *                                        'STRING'
+001306190909     A            FECHA          6S 0       TEXT('FECHA          ')
+001307190909     A            MAQUIN        10A         TEXT('MAQUINA        ')

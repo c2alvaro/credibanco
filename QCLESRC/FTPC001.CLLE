@@ -1,0 +1,168 @@
+000100181011/* FUNCTION:  UTILITY TO FTP OPERATIONS                              */
+000200181009/* DEVELOPER: ALVARO CARRE#O C.                                      */
+000300210601/* DATE:      JUNIO DEL 2021                                         */
+000400180716/*                                                                   */
+000500210712             PGM
+000600181009
+000601210601             DCL        VAR(&TOKEN) TYPE(*CHAR)  LEN(6)
+000700181010             DCL        VAR(&JOBNAME) TYPE(*CHAR) LEN(10)
+000800181010             DCL        VAR(&USENAME) TYPE(*CHAR) LEN(10)
+000900181011             DCL        VAR(&JOBNUM)  TYPE(*CHAR) LEN(6)
+001000190909             DCL        VAR(&DATE6)   TYPE(*CHAR) LEN(6)
+001100181010
+001200210601             DCLF       FILE(QGPL/FTPP001V2)
+001300181009
+001400190909             RTVSYSVAL  SYSVAL(QDATE) RTNVAR(&DATE6)
+001500181011             RTVJOBA    JOB(&JOBNAME) USER(&USENAME) NBR(&JOBNUM)
+002400191023
+002500181010 INICIO:     SNDF       DEV(*FILE) RCDFMT(F01)
+002600181010             RCVF       DEV(*FILE) RCDFMT(F01) WAIT(*YES)
+002700210601             IF         COND(&IN12) THEN(GOTO CMDLBL(FIN))
+002800181010             IF         COND(&NOMSAVF = ' ') THEN(GOTO CMDLBL(INICIO))
+002900181010             IF         COND(&LIBSAVF = ' ') THEN(GOTO CMDLBL(INICIO))
+003000181010             IF         COND(&OPC = ' ') THEN(GOTO CMDLBL(INICIO))
+003100181010
+003200181011
+003300181011 /* SEND AND SAVOBJ----------------------------------------------------------*/
+003400181011             IF         COND(&OPC = '0') THEN(DO)
+003500181010             IF         COND(&OPCCREA = 'S') THEN(DO)
+003600181010             CRTSAVF    FILE(&LIBSAVF/&NOMSAVF)
+003700181010             MONMSG     MSGID(CPF7302) EXEC(GOTO CMDLBL(ERROR3))
+003800181010             ENDDO
+003900181012             IF         COND(&OPCCREA = 'N') THEN(DO)
+004000181010             CLRSAVF    FILE(&LIBSAVF/&NOMSAVF)
+004100181012             MONMSG     MSGID(CPF9812) EXEC(GOTO CMDLBL(ERROR5))
+004200181012             MONMSG     MSGID(CPF9810) EXEC(GOTO CMDLBL(ERROR5))
+004300181012             ENDDO
+004400181009             ?          SAVOBJ DEV(*SAVF) SAVF(&LIBSAVF/&NOMSAVF)
+004500181012             MONMSG     MSGID(CPF6801) EXEC(GOTO CMDLBL(FIN))
+004600181012             MONMSG     MSGID(CPF0000) EXEC(GOTO CMDLBL(ERROR2))
+004700181011             DSPSAVF    FILE(&LIBSAVF/&NOMSAVF)
+004800181011             GOTO       CMDLBL(GOFTP)
+004900181010             ENDDO
+005000181011 /*--------------------------------------------------------------------------*/
+005100181011 /* SEND --------------------------------------------------------------------*/
+005200181011             IF         COND(&OPC = '1') THEN(DO)
+005300181011             CHKOBJ     OBJ(&LIBSAVF/&NOMSAVF) OBJTYPE(*FILE)
+005400181011             MONMSG     MSGID(CPF9810) EXEC(GOTO CMDLBL(ERROR5))
+005500181011             MONMSG     MSGID(CPF9801) EXEC(GOTO CMDLBL(ERROR5))
+005600181011             DSPSAVF    FILE(&LIBSAVF/&NOMSAVF)
+005700181011             GOTO       CMDLBL(GOFTP)
+005800181011             ENDDO
+005900181011 /*--------------------------------------------------------------------------*/
+006000181010
+006100181011 /* TO RECEIVE---------------------------------------------------------------*/
+006200181011             IF         COND(&OPC = '2') THEN(DO)
+006300181011             IF         COND(&OPCCREA = 'N') THEN(DO)
+006400181011             CHKOBJ     OBJ(&LIBSAVF/&NOMSAVF) OBJTYPE(*FILE)
+006500181011             MONMSG     MSGID(CPF9810) EXEC(GOTO CMDLBL(ERROR5))
+006600181011             MONMSG     MSGID(CPF9801) EXEC(GOTO CMDLBL(ERROR5))
+006700181011             ENDDO
+006800181011             IF         COND(&OPCCREA = 'S') THEN(DO)
+006900181011             CRTSAVF    FILE(&LIBSAVF/&NOMSAVF)
+007000181011             MONMSG     MSGID(CPF7302) EXEC(GOTO CMDLBL(ERROR3))
+007100181011             ENDDO
+007200181011             GOTO       CMDLBL(GOFTP)
+007300191023 BACK1:      DSPSAVF    FILE(&LIBSAVF/&NOMSAVF)
+007400191023             MONMSG     MSGID(CPF3805) EXEC(GOTO CMDLBL(ERROR6))
+007500191023             MONMSG     MSGID(CPF0000)
+007600181011             GOTO       CMDLBL(FIN)
+007700181010             ENDDO
+007800181011 /*--------------------------------------------------------------------------*/
+007900181011
+008000181011 /* TO RECIVE AND RST--------------------------------------------------------*/
+008100181011             IF         COND(&OPC = '3') THEN(DO)
+008200181012             IF         COND(&OPCCREA = 'N') THEN(DO)
+008300181012             CHKOBJ     OBJ(&LIBSAVF/&NOMSAVF) OBJTYPE(*FILE)
+008400181012             MONMSG     MSGID(CPF9810) EXEC(GOTO CMDLBL(ERROR5))
+008500181012             MONMSG     MSGID(CPF9801) EXEC(GOTO CMDLBL(ERROR5))
+008600181012             ENDDO
+008700181012             IF         COND(&OPCCREA = 'S') THEN(DO)
+008800181012             CRTSAVF    FILE(&LIBSAVF/&NOMSAVF)
+008900181012             MONMSG     MSGID(CPF7302) EXEC(GOTO CMDLBL(ERROR3))
+009000181012             ENDDO
+009100181011             GOTO       CMDLBL(GOFTP)
+009200181011 RST:        DSPSAVF    FILE(&LIBSAVF/&NOMSAVF)
+009300191023             MONMSG     MSGID(CPF3805) EXEC(GOTO CMDLBL(ERROR6))
+009400181011             MONMSG     MSGID(CPF0000)
+009500181012             ?          RSTOBJ DEV(*SAVF) SAVF(&LIBSAVF/&NOMSAVF)
+009600181011             MONMSG     MSGID(CPF6801) EXEC(GOTO CMDLBL(FIN))
+009700181016             MONMSG     MSGID(CPF3773) EXEC(GOTO CMDLBL(SIGUE))
+009800181016             MONMSG     MSGID(CPF0000) EXEC(GOTO CMDLBL(ERROR4))
+009900181016 SIGUE:      DSPJOBLOG  JOB(&JOBNUM/&USENAME/&JOBNAME)
+010000181012             GOTO       CMDLBL(FIN)
+010100181011             ENDDO
+010200181011 /*--------------------------------------------------------------------------*/
+010300181010
+010400181011 GOFTP:      CRTSRCPF   FILE(QTEMP/QFTPSRC) MBR(FTPSRC)
+010500181010             MONMSG     MSGID(CPF7302)    /*ALREADY FILE EXIST*/
+010602210712
+010603210712             CPYF       FROMFILE(QSYSINC/QCLSRC) TOFILE(QTEMP/QFTPSRC) +
+010604210712                          MBROPT(*REPLACE)
+010900181010
+010901210712             CALL       PGM(*LIBL/FTPR001) PARM(&NOMSAVF &LIBSAVF &OPC)
+011100181009
+011200181010             OVRDBF     FILE(INPUT) TOFILE(QTEMP/QFTPSRC) MBR(FTPSRC)
+011300181010             FTP        RMTSYS('172.16.1.75')
+011400181010             DLTOVR FILE(INPUT)
+011500181010
+011600190909             RUNSQL SQL('INSERT INTO QGPL.TOOLSF01 +
+011700190909                         VALUES(''' || &USENAME |< ''',+
+011800190909                                ''' || 'FTP2' |< ''',+
+011900190909                                ''' || &DATE6 |< ''',+
+012000190909                                ''' || 'DESANEW' |< ''')') +
+012100190909             COMMIT(*NC)
+012200190909
+012300190909
+012400181011             IF         COND(&OPC = '3') THEN(GOTO CMDLBL(RST))
+012500181011             IF         COND(&OPC = '2') THEN(GOTO CMDLBL(BACK1))
+012600181011
+012700181010             GOTO       CMDLBL(FIN)
+012800190909
+012900181009
+013000190909 /*--------------------------------------------------------------------------*/
+013100191023 ERROR1:     SNDBRKMSG  MSG('ATENCION...! Error en la creación  +
+013200181010                          del SAVF, archivo ya existe o la +
+013300181010                          biblioteca no es valida, revise e  +
+013400181010                          intente nuevamente. ') +
+013500181010                          TOMSGQ(&JOBNAME)
+013600181010             GOTO       CMDLBL(FIN)
+013700181010
+013800191023 ERROR2:     SNDBRKMSG  MSG('ATENCION...! Error comando SAVOBJ, +
+013900181012                          Ver anotaciones de Trabajo,  +
+014000181012                          revise e intente nuevamente. ') +
+014100181010                          TOMSGQ(&JOBNAME)
+014200181012             DSPJOBLOG  JOB(&JOBNUM/&USENAME/&JOBNAME)
+014300181010             GOTO       CMDLBL(FIN)
+014400181010
+014500191023 ERROR3:     SNDBRKMSG  MSG('ATENCION...! Error con el archivo  +
+014600181011                          SAVF, archivo ya existe o la +
+014700181010                          biblioteca no es valida, revise e  +
+014800181010                          intente nuevamente. ') +
+014900181010                          TOMSGQ(&JOBNAME)
+015000181010             GOTO       CMDLBL(FIN)
+015100181011
+015200191023 ERROR4:     SNDBRKMSG  MSG('ATENCION...! Error comando RSTOBJ, +
+015300181012                          Ver anotaciones de Trabajo, +
+015400181012                          revise e intente nuevamente. ') +
+015500181011                          TOMSGQ(&JOBNAME)
+015600181012             DSPJOBLOG  JOB(&JOBNUM/&USENAME/&JOBNAME)
+015700181011             GOTO       CMDLBL(FIN)
+015800181011
+015900191023 ERROR5:     SNDBRKMSG  MSG('ATENCION...! Error con el archivo  +
+016000181011                          SAVF, archivo no existe o la +
+016100181011                          biblioteca no es valida, revise e  +
+016200181011                          intente nuevamente. ') +
+016300181011                          TOMSGQ(&JOBNAME)
+016400181011             GOTO       CMDLBL(FIN)
+016500191023
+016600191023 ERROR6:     SNDBRKMSG  MSG('ATENCION...! Error con el archivo  +
+016700191023                          SAVF, el FTP no fue exitoso, +
+016800191023                          intente nuevamente y revise  +
+016900191023                          el LOG FTP. ') +
+017000191023                          TOMSGQ(&JOBNAME)
+017100191023             DSPJOBLOG  JOB(&JOBNUM/&USENAME/&JOBNAME)
+017200191023             GOTO       CMDLBL(FIN)
+017300181010
+017400181010
+017500000000 FIN:        ENDPGM

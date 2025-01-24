@@ -1,0 +1,5 @@
+001300210616     A          R FUEF005R
+001301210623     A            SRCSEQ         6S 2       COLHDG('LINEA' '-----')
+001302210623     A            SRCDAT         6S 0       COLHDG('FECHA' '-----')
+001400210623     A            SRCDTA       108A         COLHDG('CAMBIO REALIZADO' '-------
+001500210623                                            ---------')

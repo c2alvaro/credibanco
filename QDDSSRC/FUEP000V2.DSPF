@@ -1,0 +1,154 @@
+000010210604     A*%%TS  SD  20210604  152415  ACARRENO    REL-V7R2M0  5770-WDS
+000020210604     A*%%EC
+000030210604     A                                      DSPSIZ(24 80 *DS3)
+000040210604     A                                      CF03(03)
+000050210601     A          R WSFMT1
+000060210601     A*%%TS  SD  20210601  161817  ACARRENO    REL-V7R2M0  5770-WDS
+000070210601     A                                      OVERLAY
+000080210601     A                                      PUTRETAIN
+000090210601     A                                      MNUBARDSP(MENUBAR &SELOPC &INPUT)
+000100210601     A            SELOPC         2Y 0H
+000110210601     A            INPUT          2S 0H
+000120210601     A                                 22  2'==================================-
+000130210601     A                                      ===================================-
+000140210601     A                                      ========'
+000150210601     A                                      DSPATR(HI)
+000160210601     A                                      COLOR(WHT)
+000170210601     A                                  3  2'==================================-
+000180210601     A                                      ===================================-
+000190210601     A                                      ========'
+000200210601     A                                      DSPATR(HI)
+000210210601     A                                      COLOR(WHT)
+000220210601     A                                  7 25'        '
+000230210601     A                                      DSPATR(HI)
+000240210601     A                                      DSPATR(RI)
+000250210601     A                                  7 35'        '
+000260210601     A                                      DSPATR(HI)
+000270210601     A                                      DSPATR(RI)
+000280210601     A                                 11 18' '
+000290210601     A                                      DSPATR(HI)
+000300210601     A                                      DSPATR(RI)
+000310210601     A                                 11 25' '
+000320210601     A                                      DSPATR(HI)
+000330210601     A                                      DSPATR(RI)
+000340210601     A                                 11 32' '
+000350210601     A                                      DSPATR(HI)
+000360210601     A                                      DSPATR(RI)
+000370210601     A                                 11 35' '
+000380210601     A                                      DSPATR(HI)
+000390210601     A                                      DSPATR(RI)
+000400210601     A                                 11 42' '
+000410210601     A                                      DSPATR(HI)
+000420210601     A                                      DSPATR(RI)
+000430210601     A                                 15 18' '
+000440210601     A                                      DSPATR(HI)
+000450210601     A                                      DSPATR(RI)
+000460210601     A                                 15 25'        '
+000470210601     A                                      DSPATR(HI)
+000480210601     A                                      DSPATR(RI)
+000490210601     A                                 15 35'        '
+000500210601     A                                      DSPATR(HI)
+000510210601     A                                      DSPATR(RI)
+000520210601     A                                 15 45'        '
+000530210601     A                                      DSPATR(HI)
+000540210601     A                                      DSPATR(RI)
+000550210601     A                                 15 55'        '
+000560210601     A                                      DSPATR(HI)
+000570210601     A                                      DSPATR(RI)
+000580210601     A                                 17 31'DEVELOPMENT  TOOLS'
+000590210601     A                                      DSPATR(HI)
+000600210601     A                                  7 14'         '
+000610210601     A                                      DSPATR(HI)
+000620210601     A                                      DSPATR(RI)
+000630210601     A                                  9 45' '
+000640210601     A                                      DSPATR(HI)
+000650210601     A                                      DSPATR(RI)
+000660210601     A                                 13 45' '
+000670210601     A                                      DSPATR(HI)
+000680210601     A                                      DSPATR(RI)
+000690210601     A                                  9 18' '
+000700210601     A                                      DSPATR(HI)
+000710210601     A                                      DSPATR(RI)
+000720210601     A                                  9 25' '
+000730210601     A                                      DSPATR(HI)
+000740210601     A                                      DSPATR(RI)
+000750210601     A                                  9 32' '
+000760210601     A                                      DSPATR(HI)
+000770210601     A                                      DSPATR(RI)
+000780210601     A                                  9 35' '
+000790210601     A                                      DSPATR(HI)
+000800210601     A                                      DSPATR(RI)
+000810210601     A                                  9 42' '
+000820210601     A                                      DSPATR(HI)
+000830210601     A                                      DSPATR(RI)
+000840210601     A                                 13 18' '
+000850210601     A                                      DSPATR(HI)
+000860210601     A                                      DSPATR(RI)
+000870210601     A                                 13 25' '
+000880210601     A                                      DSPATR(HI)
+000890210601     A                                      DSPATR(RI)
+000900210601     A                                 13 32' '
+000910210601     A                                      DSPATR(HI)
+000920210601     A                                      DSPATR(RI)
+000930210601     A                                 13 35' '
+000940210601     A                                      DSPATR(HI)
+000950210601     A                                      DSPATR(RI)
+000960210601     A                                 13 42' '
+000970210601     A                                      DSPATR(HI)
+000980210601     A                                      DSPATR(RI)
+000990210601     A                                 11 45' '
+001000210601     A                                      DSPATR(HI)
+001010210601     A                                      DSPATR(RI)
+001020210601     A                                  7 45' '
+001030210601     A                                      DSPATR(HI)
+001040210601     A                                      DSPATR(RI)
+001050210601     A                                  7 55'        '
+001060210601     A                                      DSPATR(HI)
+001070210601     A                                      DSPATR(RI)
+001080210601     A                                  9 55' '
+001090210601     A                                      DSPATR(HI)
+001100210601     A                                      DSPATR(RI)
+001110210601     A                                 11 55'        '
+001120210601     A                                      DSPATR(HI)
+001130210601     A                                      DSPATR(RI)
+001140210601     A                                 13 62' '
+001150210601     A                                      DSPATR(HI)
+001160210601     A                                      DSPATR(RI)
+001170210601     A                                 23  2'Software Management Credibanco'
+001180210601     A                                      COLOR(BLU)
+001190210601     A                                 23 72'V.2.1.0'
+001200210601     A                                      COLOR(BLU)
+001210210601     A                                 18 32'Powered by A.C.C'
+001220210601     A                                      DSPATR(HI)
+001230210601     A            P_MSG         60   O 20  2COLOR(RED)
+001240210115     A          R MENUBAR
+001250210115     A*%%TS  SD  20210115  151411  ACARRENO    REL-V7R2M0  5770-WDS
+001260210115     A                                      MNUBAR(*NOSEPARATOR)
+001270210115     A                                      MNUBARDSP
+001280210115     A            MNUFLD         2Y 0B  1  2MNUBARCHC(1 PULL01 'Fuentes')
+001290210115     A                                      MNUBARCHC(2 PULL02 'Ftp')
+001300210115     A                                      MNUBARCHC(3 PULL03 'Tablas')
+001310210115     A                                      MNUBARCHC(4 PULL04 'Ayuda')
+001320210115     A                                      MNUBARCHC(5 PULL05 'Salir')
+001330210115     A          R PULL01
+001340210115     A*%%TS  SD  20210115  151411  ACARRENO    REL-V7R2M0  5770-WDS
+001350210115     A                                      PULLDOWN(*NOSLTIND)
+001360210115     A            NO             2Y 0B  1  1SNGCHCFLD
+001370210115     A                                      CHOICE(1 'Ftes en Librerias')
+001380210115     A                                      CHOICE(2 'String en Ftes')
+001390210115     A                                      CHOICE(3 'Refer en Producción')
+001400210112     A          R PULL02                    PULLDOWN(*NOSLTIND)
+001410210112     A            NO             2Y 0B  1  1SNGCHCFLD
+001420210112     A                                      CHOICE(1 'FTP2')
+001430210112
+001440210112     A          R PULL03                    PULLDOWN(*NOSLTIND)
+001450210112     A            NO             2Y 0B  1  1SNGCHCFLD
+001460210112     A                                      CHOICE(1 'Reftab00')
+001470210112
+001480210112     A          R PULL04                    PULLDOWN(*NOSLTIND)
+001490210112     A            NO             2Y 0B  1  1SNGCHCFLD
+001500210112     A                                      CHOICE(1 'Acerca De')
+001510210114
+001520210114     A          R PULL05                    PULLDOWN(*NOSLTIND)
+001530210114     A            NO             2Y 0B  1  1SNGCHCFLD
+001540210114     A                                      CHOICE(1 'Salir F3')

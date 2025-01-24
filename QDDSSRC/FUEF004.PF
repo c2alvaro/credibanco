@@ -1,0 +1,10 @@
+000100000000     A************************************************************
+000200000000     A
+000300180716     A          R FUEF004R
+000400180716     A            LIBAFF        10A         COLHDG('LIBRERIA  ')
+000500180716     A            NOMAFF        10A         COLHDG('ARCH FUENT')
+000600180910     A            NOMFTE        10A         COLHDG('FUENTE BUSCADO')
+000700180910     A            NOMFTE2       10A         COLHDG('FUENTE ENCONTR ')
+000800180716     A            FECHCR        13A         COLHDG('FEC CREACI')
+000900180716     A            FECHUC        13A         COLHDG('FEC CAMBIO')
+001000181001     A            HORHUC        13A         COLHDG('HOR CAMBIO')

@@ -1,0 +1,12 @@
+001300210608     A          R FUEF003R
+001301190909     A            USER          10A         TEXT('USUARIO        ')
+001302210616     A            MBRFTEO       10A         TEXT('MBR FUENTE ORI ')
+001303210616     A            LIBFTEO       10A         TEXT('LIB FUENTE ORI ')
+001304210616     A            NOMFTEO       10A         TEXT('NOM FUENTE ORI ')
+001305210616     A            MBRFTE        10A         TEXT('MBR FUENTE     ')
+001306210616     A            LIBFTE        10A         TEXT('LIB FUENTE     ')
+001307210616     A            NOMFTE        10A         TEXT('NOM FUENTE     ')
+001309210614     A            PROYEC        30A         TEXT('PROYECTO       ')
+001310210608     A            FECHA          8S 0       TEXT('FECHA          ')
+001311210608     A            HORA           6S 0       TEXT('HORA           ')
+001312190909     A            MAQUIN        10A         TEXT('MAQUINA        ')

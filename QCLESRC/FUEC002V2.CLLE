@@ -1,0 +1,106 @@
+000101190315/* FUNCTION:  DEVELOPMENT TOOLS                                      */
+000102181002/* DEVELOPER: ALVARO CARREÑO C.                                      */
+000103210531/* DATE:      JUNIO DEL 2021                                         */
+000104181002/*                                                                   */
+000106190314             PGM        PARM(&ARCHFF &VALOR &P_OPC)
+000200180716
+000300190916             DCLF       FILE(QTEMP/FUEW002) OPNID(FUEW002)
+000301210527             DCLF       FILE(FUEP001V2) OPNID(FUEP001)
+000400210531             DCL        VAR(&ARCHFF)    TYPE(*CHAR) LEN(10)
+000500210531             DCL        VAR(&VALOR)     TYPE(*CHAR) LEN(10)
+000501210531             DCL        VAR(&P_OPC)     TYPE(*CHAR)  LEN(2)
+000502210531             DCL        VAR(&USENAME)   TYPE(*CHAR) LEN(10)
+000503210531             DCL        VAR(&DATE6)     TYPE(*CHAR) LEN(6)
+000504190916
+000505190916             RTVSYSVAL  SYSVAL(QDATE) RTNVAR(&DATE6)
+000506190916             RTVJOBA    USER(&USENAME)
+000900180716
+000902210527             IF         COND(&P_OPC = '01') THEN(GOTO CMDLBL(TOOL01))
+000903210527             IF         COND(&P_OPC = '02') THEN(GOTO CMDLBL(TOOL02))
+000904210527             IF         COND(&P_OPC = '04') THEN(GOTO CMDLBL(TOOL04))
+000905190314
+000906190916 /*------------------------------------------------------------------*/
+001000190314 TOOL01:     CRTDUPOBJ  OBJ(FUEF004) FROMLIB(QGPL) OBJTYPE(*FILE) +
+001100190314                          TOLIB(QTEMP) NEWOBJ(FUEW004)
+001200181001             MONMSG     MSGID(CPF2130)
+001301181001             CLRPFM     FILE(QTEMP/FUEW004)
+001302190916             CHGVAR     VAR(&FUEP001_ARCHFF) VALUE(&ARCHFF)
+001303190916             CHGVAR     VAR(&FUEP001_MBRFTE) VALUE(&VALOR)
+001304190916             CHGVAR     VAR(&FUEP001_P_MSG) VALUE('Working Pleasse Wait...')
+001305190916             SNDRCVF    DEV(*FILE) RCDFMT(F0101) OPNID(FUEP001) WAIT(*NO)
+001500190916 READ:       RCVF       DEV(*FILE) RCDFMT(QLIDOBJD) OPNID(FUEW002)
+001600190314             MONMSG     MSGID(CPF0864) EXEC(GOTO CMDLBL(ENDT01))
+001604190916             IF         COND(&FUEW002_ODOBNM = 'CARALV29') THEN(GOTO +
+001605190916                          CMDLBL(READ))
+001606190916             DSPFD      FILE(&FUEW002_ODOBNM/&ARCHFF) TYPE(*MBRLIST) +
+001607181210                          OUTPUT(*OUTFILE) OUTFILE(QTEMP/FUEW003)
+002000180928             MONMSG     MSGID(CPF3012) EXEC(GOTO CMDLBL(READ))
+002400210531             CALL       PGM(FUER001V2) PARM(&VALOR)
+002600180716             GOTO       CMDLBL(READ)
+003003210531 ENDT01:     CALL       PGM(FUEC003V2)
+003004190916             RUNSQL SQL('INSERT INTO QGPL.TOOLSF01 +
+003005190916                         VALUES(''' || &USENAME |< ''',+
+003006190916                                ''' || 'FUENTES' |< ''',+
+003007190916                                ''' || &DATE6 |< ''',+
+003008190916                                ''' || 'DESANEW' |< ''')') +
+003009190916             COMMIT(*NC)
+003010190916
+003017190314             GOTO       CMDLBL(FIN)
+003018190913
+003019190916 /*------------------------------------------------------------------*/
+003020181002
+003021190314 TOOL02:     CRTDUPOBJ  OBJ(FUEF010) FROMLIB(QGPL) OBJTYPE(*FILE) +
+003022190314                          TOLIB(QTEMP) NEWOBJ(FUEW010)
+003023190314             MONMSG     MSGID(CPF2130)
+003024190916             CHGVAR     VAR(&FUEP001_ARCHFF2) VALUE(&ARCHFF)
+003025190916             CHGVAR     VAR(&FUEP001_SERIE) VALUE(&VALOR)
+003026190916             CHGVAR     VAR(&FUEP001_P_MSG2) VALUE('Working Pleasse +
+003027190916                          Wait a Moment...')
+003028190916             SNDRCVF    DEV(*FILE) RCDFMT(F0202) OPNID(FUEP001) WAIT(*NO)
+003029190314             CLRPFM     FILE(QTEMP/FUEW010)
+003030190315             RUNSQL SQL('INSERT INTO QTEMP.FUEW010 +
+003031190315                             VALUES(''' || 'BUSCAR:' |< ''',+
+003032190315                                    ''' || &VALOR |< ''',+
+003033190315                                    ''' || ' ' |< ''',+
+003034190315                                    ''' || ' ' |< ''',+
+003035190315                                    ''' || ' ' |< ''')') +
+003036190315             COMMIT(*NC)
+003037190916 READ2:      RCVF       DEV(*FILE) RCDFMT(QLIDOBJD) OPNID(FUEW002)
+003038190314             MONMSG     MSGID(CPF0864) EXEC(GOTO CMDLBL(ENDT02))
+003039210531             IF         COND(&FUEW002_ODOBNM = 'CARALV29') THEN(GOTO +
+003040210531                          CMDLBL(READ2))
+003041190916             FNDSTRPDM  STRING(&VALOR) FILE(&FUEW002_ODOBNM/&ARCHFF) MBR(*ALL) +
+003042190314                          OPTION(XX)
+003043190314             MONMSG     MSGID(PDM0055) EXEC(GOTO CMDLBL(READ2))
+003044190314             GOTO       CMDLBL(READ2)
+003045190314
+003046190314 ENDT02:     RUNQRY     QRYFILE((QTEMP/FUEW010))
+003047190916             RUNSQL SQL('INSERT INTO QGPL.TOOLSF01 +
+003048190916                         VALUES(''' || &USENAME |< ''',+
+003049190916                                ''' || 'STRINGS' |< ''',+
+003050190916                                ''' || &DATE6 |< ''',+
+003051190916                                ''' || 'DESANEW' |< ''')') +
+003052190916             COMMIT(*NC)
+003058190314             GOTO       CMDLBL(FIN)
+003059190314
+003077191209 TOOL04:     CRTDUPOBJ  OBJ(UTIF003) FROMLIB(QGPL) OBJTYPE(*FILE) +
+003078191209                          TOLIB(QTEMP) NEWOBJ(UTIW003)
+003079191209             MONMSG     MSGID(CPF2130)
+003080191209             CLRPFM     FILE(QTEMP/UTIW003)
+003081191209             RUNSQL SQL('INSERT INTO QTEMP.UTIW003 SELECT +
+003082191209                             WHDTTM, WHLIB, +
+003083191209                             WHPNAM, WHFNAM, WHLNAM, WHRFSN  +
+003084191209                             FROM QGPL.UTIF002 +
+003085191209                             WHERE WHPNAM=''' || &VALOR |< ''' AND +
+003086191209                                   WHLIB<>''' || 'PGM_VERANT' |< ''' ') +
+003087191209             COMMIT(*NC)
+003088191209             RUNQRY     *N UTIW003
+003091191206             RUNSQL SQL('INSERT INTO QGPL.TOOLSF01 +
+003092191209                         VALUES(''' || &USENAME |< ''',+
+003093191206                                ''' || 'REFEREN' |< ''',+
+003094191206                                ''' || &DATE6 |< ''',+
+003095191206                                ''' || 'DESANEW' |< ''')') +
+003096191206             COMMIT(*NC)
+003098191206             GOTO       CMDLBL(FIN)
+003099191206
+003101190314 FIN:        ENDPGM

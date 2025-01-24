@@ -1,0 +1,252 @@
+000010210604     A*%%TS  SD  20210604  152433  ACARRENO    REL-V7R2M0  5770-WDS
+000020210604     A*%%EC
+000030210604     A                                      DSPSIZ(24 80 *DS3)
+000040210604     A                                      PRINT
+000050210604     A                                      CF12(12)
+000060210531     A          R F01
+000070210531     A*%%TS  SD  20210531  143630  ACARRENO    REL-V7R2M0  5770-WDS
+000080210531     A                                      BLINK
+000090210531     A                                      OVERLAY
+000100210531     A                                      PUTRETAIN
+000110210531     A                                      PROTECT
+000120210531     A            ARCHFF        10A  B  6 44DSPATR(HI)
+000130210531     A  10                                  ERRMSG('El proceso ha terminado con-
+000140210531     A                                       exito')
+000150210531     A  90                                  ERRMSG('El miembro no existe')
+000160210531     A                                  6  5'Nombre del Archivo Fisico de Fuent-
+000170210531     A                                      es:'
+000180210531     A            MBRFTE        10A  B 10 44DSPATR(HI)
+000190210531     A                                 10  5'Nombre del Miembro Fuente:'
+000200210531     A                                  3  2'==================================-
+000210210531     A                                      ===================================-
+000220210531     A                                      ========'
+000230210531     A                                      DSPATR(HI)
+000240210531     A                                      COLOR(WHT)
+000250210531     A                                  7  9'Nombre'
+000260210531     A                                      DSPATR(HI)
+000270210531     A                                 11  9'Nombre, Nombre*'
+000280210531     A                                      DSPATR(HI)
+000290210531     A                                 15  5'Solo Buscar Fecha Producción:'
+000300210531     A            P_SFTE         1A  B 15 36DSPATR(HI)
+000310210531     A                                      VALUES(' ' 's' 'n' 'S' 'N')
+000320210531     A                                 16  9'S/N'
+000330210531     A                                      DSPATR(HI)
+000340210531     A                                 22  2'==================================-
+000350210531     A                                      ===================================-
+000360210531     A                                      ========'
+000370210531     A                                      DSPATR(HI)
+000380210531     A                                      COLOR(WHT)
+000390210531     A                                 23  2'Software Management Credibanco'
+000400210531     A                                      COLOR(BLU)
+000410210531     A                                 23 72'V.2.1.0'
+000420210531     A                                      COLOR(BLU)
+000430210531     A                                  2  2'Buscar Fuente en Librerias'
+000440210531     A                                      COLOR(BLU)
+000450210531     A                                  1 69USER
+000460210531     A                                      COLOR(BLU)
+000470210531     A                                  1  2'Development TOOLS'
+000480210531     A                                      DSPATR(HI)
+000490210531     A                                      COLOR(BLU)
+000500210531     A                                  2 69'F12 Atras'
+000510210531     A                                      DSPATR(HI)
+000520210531     A                                      COLOR(BLU)
+000530210531     A          R F02
+000540210531     A*%%TS  SD  20210531  143630  ACARRENO    REL-V7R2M0  5770-WDS
+000550210531     A                                      BLINK
+000560210531     A                                      OVERLAY
+000570210531     A                                      PUTRETAIN
+000580210531     A                                      PROTECT
+000590210531     A            ARCHFF2       10A  B  6 44DSPATR(HI)
+000600210531     A  10                                  ERRMSG('El proceso ha terminado con-
+000610210531     A                                       exito')
+000620210531     A  90                                  ERRMSG('El miembro no existe')
+000630210531     A                                  1 69USER
+000640210531     A                                      DSPATR(HI)
+000650210531     A                                      COLOR(BLU)
+000660210531     A                                  6  5'Nombre del Archivo Fisico de Fuent-
+000670210531     A                                      es:'
+000680210531     A            SERIE         10A  B 10 44DSPATR(HI)
+000690210531     A                                 10  5'Serie (String) a Buscar..:'
+000700210531     A                                  3  2'==================================-
+000710210531     A                                      ===================================-
+000720210531     A                                      ========'
+000730210531     A                                      DSPATR(HI)
+000740210531     A                                      COLOR(WHT)
+000750210531     A                                  7  9'Nombre'
+000760210531     A                                      DSPATR(HI)
+000770210531     A                                 11  9'Cadena'
+000780210531     A                                      DSPATR(HI)
+000790210531     A                                  1  2'Development TOOLS'
+000800210531     A                                      COLOR(BLU)
+000810210531     A                                  2  2'Buscar un String en Fuentes'
+000820210531     A                                      COLOR(BLU)
+000830210531     A                                  2 69'F12 Atras'
+000840210531     A                                      COLOR(BLU)
+000850210531     A                                 22  2'==================================-
+000860210531     A                                      ===================================-
+000870210531     A                                      ========'
+000880210531     A                                      DSPATR(HI)
+000890210531     A                                      COLOR(WHT)
+000900210531     A                                 23  2'Software Management Credibanco'
+000910210531     A                                      COLOR(BLU)
+000920210531     A                                 23 72'V.2.1.0'
+000930210531     A                                      COLOR(BLU)
+000940191206     A          R F03
+000950191206     A*%%TS  SD  20191206  153115  ACARRENO    REL-V7R2M0  5770-WDS
+000960191206     A                                      BLINK
+000970191206     A                                      OVERLAY
+000980191206     A                                      PUTRETAIN
+000990191206     A                                      PROTECT
+001000191206     A                                  1  2'CrediBanco     '
+001010191206     A                                      DSPATR(HI)
+001020191206     A                                  1 70DATE
+001030191206     A                                      EDTCDE(Y)
+001040191206     A                                      DSPATR(HI)
+001050191206     A            NOMPGM        10A  B  6 44DSPATR(HI)
+001060191206     A  10                                  ERRMSG('El proceso ha terminado con-
+001070191206     A                                       exito')
+001080191206     A  90                                  ERRMSG('El miembro no existe')
+001090191206     A                                 23  3'F3=Salir'
+001100191206     A                                      COLOR(BLU)
+001110191206     A                                  2 70USER
+001120191206     A                                      DSPATR(HI)
+001130191206     A                                  6  5'Nombre del Objeto Tipo RPGLE......-
+001140191206     A                                      ..:'
+001150191206     A                                  3  2'__________________________________-
+001160191206     A                                      ___________________________________-
+001170191206     A                                      _________'
+001180191206     A                                      COLOR(BLU)
+001190191206     A                                  1 26'BUSCAR REFERENCIAS PRODUCCION'
+001200191206     A                                      DSPATR(HI)
+001210191206     A                                 22  3'__________________________________-
+001220191206     A                                      ___________________________________-
+001230191206     A                                      ________'
+001240191206     A                                      COLOR(BLU)
+001250191206     A                                  2 38'V.1.1'
+001260191206     A                                      DSPATR(HI)
+001270191206     A                                  7  9'Nombre'
+001280191206     A                                      COLOR(BLU)
+001290191206     A                                  2  2'Software Management'
+001300191206     A                                      DSPATR(HI)
+001310210527     A          R F0101
+001320210527     A*%%TS  SD  20210527  150427  ACARRENO    REL-V7R2M0  5770-WDS
+001330210527     A                                      BLINK
+001340210527     A                                      OVERLAY
+001350210527     A                                      PUTRETAIN
+001360210527     A                                      PROTECT
+001370210527     A            ARCHFF        10A  B  6 44DSPATR(HI)
+001380210527     A  10                                  ERRMSG('El proceso ha terminado con-
+001390210527     A                                       exito')
+001400210527     A  90                                  ERRMSG('El miembro no existe')
+001410210527     A                                  6  5'Nombre del Archivo Fisico de Fuent-
+001420210527     A                                      es:'
+001430210527     A            MBRFTE        10A  B 10 44DSPATR(HI)
+001440210527     A                                 10  5'Nombre del Miembro Fuente:'
+001450210527     A                                  3  2'==================================-
+001460210527     A                                      ===================================-
+001470210527     A                                      ========'
+001480210527     A                                      DSPATR(HI)
+001490210527     A                                      COLOR(WHT)
+001500210527     A                                  7  9'Nombre'
+001510210527     A                                      DSPATR(HI)
+001520210527     A                                 11  9'Nombre, Nombre*'
+001530210527     A                                      DSPATR(HI)
+001540210527     A                                 22  2'==================================-
+001550210527     A                                      ===================================-
+001560210527     A                                      ========'
+001570210527     A                                      DSPATR(HI)
+001580210527     A                                      COLOR(WHT)
+001590210527     A                                 23  2'Software Management Credibanco'
+001600210527     A                                      COLOR(BLU)
+001610210527     A                                 23 72'V.2.1.0'
+001620210527     A                                      COLOR(BLU)
+001630210527     A                                  2  2'Buscar Fuente en Librerias'
+001640210527     A                                      COLOR(BLU)
+001650210527     A                                  1 69USER
+001660210527     A                                      COLOR(BLU)
+001670210527     A                                  1  2'Development TOOLS'
+001680210527     A                                      DSPATR(HI)
+001690210527     A                                      COLOR(BLU)
+001700210527     A                                  2 69'F12 Atras'
+001710210527     A                                      DSPATR(HI)
+001720210527     A                                      COLOR(BLU)
+001730210527     A            P_MSG         60   O 19  7DSPATR(HI)
+001740210531     A          R F0202
+001750210531     A*%%TS  SD  20210531  145956  ACARRENO    REL-V7R2M0  5770-WDS
+001760210531     A                                      BLINK
+001770210531     A                                      OVERLAY
+001780210531     A                                      PUTRETAIN
+001790210531     A                                      PROTECT
+001800210531     A            ARCHFF2       10A  B  6 44DSPATR(HI)
+001810210531     A  10                                  ERRMSG('El proceso ha terminado con-
+001820210531     A                                       exito')
+001830210531     A  90                                  ERRMSG('El miembro no existe')
+001840210531     A                                  1 69USER
+001850210531     A                                      DSPATR(HI)
+001860210531     A                                      COLOR(BLU)
+001870210531     A                                  6  5'Nombre del Archivo Fisico de Fuent-
+001880210531     A                                      es:'
+001890210531     A            SERIE         10A  B 10 44DSPATR(HI)
+001900210531     A                                 10  5'Serie (String) a Buscar..:'
+001910210531     A                                  3  2'==================================-
+001920210531     A                                      ===================================-
+001930210531     A                                      ========'
+001940210531     A                                      DSPATR(HI)
+001950210531     A                                      COLOR(WHT)
+001960210531     A                                  7  9'Nombre'
+001970210531     A                                      DSPATR(HI)
+001980210531     A                                 11  9'Cadena'
+001990210531     A                                      DSPATR(HI)
+002000210531     A                                  1  2'Development TOOLS'
+002010210531     A                                      COLOR(BLU)
+002020210531     A                                  2  2'Buscar un String en Fuentes'
+002030210531     A                                      COLOR(BLU)
+002040210531     A                                  2 69'F12 Atras'
+002050210531     A                                      COLOR(BLU)
+002060210531     A                                 22  2'==================================-
+002070210531     A                                      ===================================-
+002080210531     A                                      ========'
+002090210531     A                                      DSPATR(HI)
+002100210531     A                                      COLOR(WHT)
+002110210531     A                                 23  2'Software Management Credibanco'
+002120210531     A                                      COLOR(BLU)
+002130210531     A                                 23 72'V.2.1.0'
+002140210531     A                                      COLOR(BLU)
+002150210531     A            P_MSG2        60   O 19  5DSPATR(HI)
+002160210604     A          R ACERCADE
+002170210604     A*%%TS  SD  20210604  152433  ACARRENO    REL-V7R2M0  5770-WDS
+002180210604     A                                      BLINK
+002190210604     A                                      OVERLAY
+002200210604     A                                      PUTRETAIN
+002210210604     A                                      PROTECT
+002220210604     A                                  1 69USER
+002230210604     A                                      DSPATR(HI)
+002240210604     A                                      COLOR(BLU)
+002250210604     A                                  3  2'==================================-
+002260210604     A                                      ===================================-
+002270210604     A                                      ========'
+002280210604     A                                      DSPATR(HI)
+002290210604     A                                      COLOR(WHT)
+002300210604     A                                  1  2'Development TOOLS'
+002310210604     A                                      COLOR(BLU)
+002320210604     A                                  2  2'Acerca de Tools'
+002330210604     A                                      COLOR(BLU)
+002340210604     A                                  2 69'F12 Atras'
+002350210604     A                                      COLOR(BLU)
+002360210604     A                                 22  2'==================================-
+002370210604     A                                      ===================================-
+002380210604     A                                      ========'
+002390210604     A                                      DSPATR(HI)
+002400210604     A                                      COLOR(WHT)
+002410210604     A                                 23  2'Software Management Credibanco'
+002420210604     A                                      COLOR(BLU)
+002430210604     A                                 23 72'V.2.1.0'
+002440210604     A                                      COLOR(BLU)
+002450210604     A                                  6  4'Development TOOLS'
+002460210604     A                                      DSPATR(HI)
+002470210604     A                                  8  4'Product version: 2.1.0'
+002480210604     A                                  9  4'Developed and maintained by: Ing. -
+002490210604     A                                      Alvaro Carre¦o C'
+002500210604     A                                 10  4'Copyright @2021'
+002510210604     A                                 11  4'Use is authorized for: Software Ma-
+002520210604     A                                      nagement Credibanco'

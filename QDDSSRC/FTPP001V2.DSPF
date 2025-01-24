@@ -1,0 +1,68 @@
+000010210602     A*%%TS  SD  20210602  143103  ACARRENO    REL-V7R2M0  5770-WDS
+000020210602     A*%%EC
+000030210602     A                                      DSPSIZ(24 80 *DS3)
+000040210602     A                                      PRINT
+000050210602     A                                      CF12(12)
+000060210601     A          R F01
+000070210601     A*%%TS  SD  20210601  141026  ACARRENO    REL-V7R2M0  5770-WDS
+000080210601     A                                      BLINK
+000090210601     A                                      OVERLAY
+000100210601     A                                      PUTRETAIN
+000110210601     A                                      PROTECT
+000120210601     A            NOMSAVF       10A  B  6 44DSPATR(HI)
+000130210601     A  10                                  ERRMSG('El proceso ha terminado con-
+000140210601     A                                       exito')
+000150210601     A  90                                  ERRMSG('El miembro no existe')
+000160210601     A                                      CHECK(LC)
+000170210601     A                                  6  5'Nombre del SAVFILE................-
+000180210601     A                                      ..:'
+000190210601     A            LIBSAVF       10A  B  8 44DSPATR(HI)
+000200210601     A                                      CHECK(LC)
+000210210601     A                                  8  5'Libreria del SAVFILE..............-
+000220210601     A                                      ..:'
+000230210601     A                                 10  5'Opción.....:'
+000240210601     A            OPC            1A  B 10 19DSPATR(HI)
+000250210601     A                                      DFTVAL('0')
+000260210601     A                                      VALUES('0' '1' '2' '3' ' ')
+000270210601     A                                 10 27'0=SAVOBJ y Enviar'
+000280210601     A                                      COLOR(BLU)
+000290210601     A                                 11 27'1=Solo Enviar'
+000300210601     A                                      COLOR(BLU)
+000310210601     A                                 16  5'Crear Archivo SAVFILE..:'
+000320210601     A            OPCCREA        1A  B 16 30DFTVAL('N')
+000330210601     A                                      VALUES('N' 'S')
+000340210601     A                                      DSPATR(HI)
+000350210601     A                                 12 27'2=Solo Recibir'
+000360210601     A                                      COLOR(BLU)
+000370210601     A                                 10 22'<--|'
+000380210601     A                                      COLOR(BLU)
+000390210601     A                                 12 25'|'
+000400210601     A                                      COLOR(BLU)
+000410210601     A                                 16 32'(N/S)'
+000420210601     A                                      COLOR(BLU)
+000430210601     A                                 11 25'|'
+000440210601     A                                      COLOR(BLU)
+000450210601     A                                 13 25'|'
+000460210601     A                                      COLOR(BLU)
+000470210601     A                                 13 27'3=Recibir y RSTOBJ'
+000480210601     A                                      COLOR(BLU)
+000490210601     A                                  1  2'Development TOOLS'
+000500210601     A                                      COLOR(BLU)
+000510210601     A                                  2  2'FTP 2'
+000520210601     A                                      COLOR(BLU)
+000530210601     A                                  3  2'==================================-
+000540210601     A                                      ===================================-
+000550210601     A                                      ======='
+000560210601     A                                      DSPATR(HI)
+000570210601     A                                  1 68USER
+000580210601     A                                      COLOR(BLU)
+000590210601     A                                  2 68'F12 Atras'
+000600210601     A                                      COLOR(BLU)
+000610210601     A                                 22  2'==================================-
+000620210601     A                                      ===================================-
+000630210601     A                                      ======='
+000640210601     A                                      DSPATR(HI)
+000650210601     A                                 23  2'Software Management Credibanco'
+000660210601     A                                      COLOR(BLU)
+000670210601     A                                 23 71'V.2.1.0'
+000680210601     A                                      COLOR(BLU)

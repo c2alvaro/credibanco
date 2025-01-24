@@ -1,0 +1,1 @@
+000100181011             CMD        PROMPT('OPERACIONES FTP')

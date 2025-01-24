@@ -1,0 +1,12 @@
+000100190315/* FUNCTION:  DEVELOPMENT TOOLS                                      */
+000200180716/* DEVELOPER: ALVARO CARREÑO C.                                      */
+000300190315/* DATE:      MARZO DEL 2019                                         */
+000400180716/*                                                                   */
+000500190919
+000600190919Opc  Opción  Mandato
+000700190919       IG    CRTBNDRPG PGM(&L/&N) SRCFILE(&L/&F) SRCMBR(
+000800190919       SQ    strsql
+000900190919       XX    CALL PGM(QGPL/FUER003) PARM(&L &F &N &T &X)
+001000190919
+001100190919
+001200190919

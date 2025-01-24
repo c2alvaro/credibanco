@@ -1,0 +1,8 @@
+000100000000     A************************************************************
+000200000000     A
+000300190315     A          R FUEF010R
+000400190315     A            LIB           10A         COLHDG('NOM' 'LIBRERIA' '--------')
+000500190315     A            ARCF          10A         COLHDG('ARCH' 'FUENTE' '------')
+000600190315     A            FUENTE        10A         COLHDG('NOMBRE' 'FUENTE' '------')
+000700190315     A            TIPO          10A         COLHDG('TIPO' 'FUENTE' '------')
+000800190315     A            TEXTO         45A         COLHDG('TEXTO' 'DESCRIP' '-------')

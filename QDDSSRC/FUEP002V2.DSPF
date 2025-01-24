@@ -1,0 +1,208 @@
+000010210622     A*%%TS  SD  20210622  170330  ACARRENO    REL-V7R2M0  5770-WDS
+000020000000     A*  89/12/05  15:12:26    JESUS       REL-R01M02  5728-PW1
+000030000000     A*            12:25:33    QPGMR       REL-R07M00  5714-UT1
+000040210622     A*%%EC
+000050210622     A                                      DSPSIZ(24 80 *DS3)
+000060210622     A                                      MSGLOC(24)
+000070210622     A                                      PRINT
+000080210608     A          R MSGERROR
+000090210608     A*%%TS  SD  20210608  105942  ACARRENO    REL-V7R2M0  5770-WDS
+000100210608     A                                      WINDOW(7 13 5 50)
+000110210608     A                                  1 21'ATENCION'
+000120210608     A                                      DSPATR(BL)
+000130210608     A                                      COLOR(RED)
+000140210608     A            P_ERR         49A  O  2  1
+000150210608     A                                  4  1'<ENTER> Salir'
+000160210608     A                                      COLOR(BLU)
+000170210608     A                                  3  1'__________________________________-
+000180210608     A                                      ________________'
+000190210608     A                                      COLOR(BLU)
+000200210608     A          R MSGMENSA
+000210210608     A*%%TS  SD  20210608  135608  ACARRENO    REL-V7R2M0  5770-WDS
+000220210608     A                                      WINDOW(7 13 5 50)
+000230210608     A            P_MSG         49A  O  2  1
+000240210608     A                                  4  1'<ENTER> Salir'
+000250210608     A                                      COLOR(BLU)
+000260210608     A                                  3  1'__________________________________-
+000270210608     A                                      ________________'
+000280210608     A                                      COLOR(BLU)
+000290210608     A                                  1 18'M E N S A J E'
+000300210608     A                                      DSPATR(HI)
+000310191010     A          R MSGPREGU
+000320191010     A*%%TS  SD  20191010  112738  ACARRENO    REL-V7R2M0  5770-WDS
+000330191010     A                                      WINDOW(7 13 5 50)
+000340191010     A            P_PRE         49A  O  2  1
+000350191010     A                                  4  1'__________________________________-
+000360191010     A                                      ________________'
+000370191010     A                                      COLOR(BLU)
+000380191010     A                                  3 21'<S/N>'
+000390191010     A                                      DSPATR(HI)
+000400191010     A                                  1 17'A T E N C I O N'
+000410191010     A                                      DSPATR(HI)
+000420191010     A            P_RES2         1A  B  3 27DSPATR(HI)
+000430191010     A                                      VALUES('S' 'N' 's' 'n')
+000440210616     A          R SUBFILE                   SFL
+000450210616     A*%%TS  SD  20210616  120022  ACARRENO    REL-V7R2M0  5770-WDS
+000460210616     A            P_LIB         10A  O  9  7
+000470210616     A  69                                  COLOR(RED)
+000480210616     A            P_ARF         10   O  9 20
+000490210616     A  69                                  COLOR(RED)
+000500210616     A            P_FTE         10A  O  9 33
+000510210616     A  69                                  COLOR(RED)
+000520210616     A            P_FEC1         8A  O  9 47
+000530210616     A  69                                  COLOR(RED)
+000540210616     A            P_FEC2         8A  O  9 58
+000550210616     A  69                                  COLOR(RED)
+000560210616     A            P_HOR          8A  O  9 69
+000570210616     A  69                                  COLOR(RED)
+000580210616     A            P_OPC          1A  B  9  4
+000590210616     A  69                                  COLOR(RED)
+000600210616     A                                      VALUES(' ' '3')
+000610210616     A          R CONTROL                   SFLCTL(SUBFILE)
+000620210616     A*%%TS  SD  20210616  093821  ACARRENO    REL-V7R2M0  5770-WDS
+000630210616     A                                      SFLSIZ(9999)
+000640210616     A                                      SFLPAG(0012)
+000650210616     A                                      CF12(12 'atras')
+000660210616     A                                      CF01(01 'info')
+000670210616     A                                      OVERLAY
+000680210616     A                                      SFLCSRRRN(&RELRCD)
+000690210616     A N90                                  SFLDSP
+000700210616     A N90                                  SFLDSPCTL
+000710210616     A  90                                  SFLCLR
+000720210616     A N01                                  SFLEND(*MORE)
+000730210616     A            RELRCD         5S 0H
+000740210616     A                                  4  3'Fuente Buscado....:'
+000750210616     A                                      DSPATR(HI)
+000760210616     A                                  5  3'Versión Producción:'
+000770210616     A                                      DSPATR(HI)
+000780210616     A                                  8  3'OPC LIBRERIA     ARCH FUENT   FTE -
+000790210616     A                                      ENCONT   FEC_CREACI FEC CAMBIO HOR -
+000800210616     A                                      CAMBIO'
+000810210616     A                                      DSPATR(HI)
+000820210616     A            P_FTEB        20A  O  4 23
+000830210616     A            P_FECP         8A  O  5 23COLOR(RED)
+000840210616     A            P_HORP         8A  O  5 32COLOR(RED)
+000850210616     A                                  6  3'Compilado Producc.:'
+000860210616     A                                      DSPATR(HI)
+000870210616     A            P_INFC        30A  O  6 23
+000880210616     A                                  4 59'Fecha archivo Tools'
+000890210616     A                                      DSPATR(HI)
+000900210616     A            P_FECA         8A  O  5 70
+000910210616     A                                  1  2'Development TOOLS'
+000920210616     A                                      COLOR(BLU)
+000930210616     A                                  2  2'Buscar Fuente en Librerias'
+000940210616     A                                      COLOR(BLU)
+000950210616     A                                  3  2'==================================-
+000960210616     A                                      ===================================-
+000970210616     A                                      ========'
+000980210616     A                                      DSPATR(HI)
+000990210616     A                                  1 69USER
+001000210616     A                                      COLOR(BLU)
+001010210616     A                                  2 69'F12 Atras'
+001020210616     A                                      COLOR(BLU)
+001030210616     A                                  7 59'3=Copiar'
+001040210616     A                                      DSPATR(HI)
+001050210616     A                                  4 45'<F1> Info'
+001060210616     A                                      DSPATR(HI)
+001070210528     A          R PIE
+001080210528     A*%%TS  SD  20210528  100131  ACARRENO    REL-V7R2M0  5770-WDS
+001090210528     A                                 22  2'==================================-
+001100210528     A                                      ===================================-
+001110210528     A                                      ========='
+001120210528     A                                      DSPATR(HI)
+001130210528     A                                 23  2'Software Management Credibanco'
+001140210528     A                                      COLOR(BLU)
+001150210528     A                                 23 73'V.2.1.0'
+001160210528     A                                      COLOR(BLU)
+001170210616     A          R WIN001
+001180210616     A*%%TS  SD  20210616  120725  ACARRENO    REL-V7R2M0  5770-WDS
+001190210616     A                                      WINDOW(4 13 15 50)
+001200210616     A                                      CF06(06 'cancelar')
+001210210616     A                                 13  1'__________________________________-
+001220210616     A                                      ________________'
+001230210616     A                                      COLOR(BLU)
+001240210616     A                                  1 20'C O P I A R'
+001250210616     A                                      DSPATR(HI)
+001260210616     A                                 14  1'<F06> Cancelar'
+001270210616     A                                      COLOR(BLU)
+001280210616     A                                 14 19'<ENTER> Continuar'
+001290210616     A                                      COLOR(BLU)
+001300210616     A                                  7  2'Libreria.....:'
+001310210616     A            P_LIB2        10A  B  7 17
+001320210616     A                                  5  2'Archivo......:'
+001330210616     A            P_ARC2        10A  B  5 17
+001340210616     A                                  9  2'Proyecto.....:'
+001350210616     A            P_PROY        30A  B  9 17
+001360210616     A                                 11  2'Maquina......:'
+001370210616     A            P_MAQ          1A  B 11 17VALUES(' ' 'M' 'D' 'm' 'd')
+001380210616     A                                 11 20'D=Desanew  M=Miembros'
+001390210616     A                                      COLOR(BLU)
+001400210616     A            P_FTE2        35A  O  3  2
+001410000000     A          R WIN002
+001420000000     A*%%TS  SD  20180104  140344  BCDTRCAC01  REL-V7R2M0  5770-WDS
+001430000000     A                                      WINDOW(2 8 15 60)
+001440000000     A                                      CF12(12 'atras')
+001450000000     A                                      CF06(06 'modificar')
+001460000000     A                                 13  1'__________________________________-
+001470000000     A                                      ________________'
+001480000000     A                                      COLOR(BLU)
+001490000000     A                                 14  1'<F12> Atras'
+001500000000     A                                      COLOR(BLU)
+001510000000     A                                  4  2'Cedula.......:'
+001520000000     A                                  6  2'Nombre.......:'
+001530000000     A            P_WNOM        44A  B  6 17
+001540000000     A                                  8  2'Edad.........:'
+001550000000     A            P_WEDA         2Y 0B  8 17EDTCDE(4)
+001560000000     A                                 10  2'Direccin....:'
+001570000000     A            P_WDIR        44A  B 10 17
+001580000000     A            P_WCED        10Y 0O  4 17EDTCDE(4)
+001590000000     A                                  1 20'CONSULTAR - MODIFICAR'
+001600000000     A                                      DSPATR(HI)
+001610000000     A                                 14 14'<F6> Guardar Cambios'
+001620000000     A                                      COLOR(BLU)
+001630191010     A          R MSGPREGU2
+001640191010     A*%%TS  SD  20191010  143858  ACARRENO    REL-V7R2M0  5770-WDS
+001650191010     A                                      WINDOW(7 13 5 50)
+001660191010     A                                  4  1'__________________________________-
+001670191010     A                                      ________________'
+001680191010     A                                      COLOR(BLU)
+001690191010     A                                  1 17'A T E N C I O N'
+001700191010     A                                      DSPATR(HI)
+001710191010     A            P_RES         10A  B  3 19DSPATR(HI)
+001720191010     A                                  2  2'Nombre del Fuente a Buscar en Prod-
+001730191010     A                                      ucción:'
+001740210615
+001750210622     A          R SUBFILE3                  SFL
+001760210622     A*%%TS  SD  20210622  170330  ACARRENO    REL-V7R2M0  5770-WDS
+001770210622     A                                      TEXT('Y')
+001780210622     A                                      SFLNXTCHG
+001790210622     A            P_OPC3         1A  B  6  2VALUES(' ' 'V' 'v')
+001800210622     A            P_USER3       10A  O  6  5
+001810210622     A            P_PRO3        25A  O  6 16
+001820210622     A            P_MAQ3        10A  O  6 51
+001830210622     A            P_FEC3         8S 0O  6 42
+001840210622     A          R CONTROL3                  SFLCTL(SUBFILE3)
+001850210622     A*%%TS  SD  20210622  170330  ACARRENO    REL-V7R2M0  5770-WDS
+001860210622     A                                      SFLSIZ(9999)
+001870210622     A                                      SFLPAG(0007)
+001880210622     A                                      WINDOW(4 7 15 60)
+001890210622     A                                      CF12(12 'cancelar')
+001900210622     A                                      OVERLAY
+001910210622     A N93                                  SFLDSP
+001920210622     A N93                                  SFLDSPCTL
+001930210622     A  93                                  SFLCLR
+001940210622     A N03                                  SFLEND(*MORE)
+001950210622     A                                      WDWBORDER((*COLOR BLU) (*DSPATR RI)-
+001960210622     A                                       (*CHAR '        '))
+001970210622     A                                      USRRSTDSP
+001980210622     A                                  5  1'Opc Usuario    Proyecto           -
+001990210622     A                                              Fecha   Maquina   '
+002000210622     A                                      COLOR(WHT)
+002010210622     A                                      DSPATR(UL)
+002020210622     A                                  3  2'<ENTER> Salir'
+002030210622     A                                      COLOR(BLU)
+002040210622     A                                  2  2'HISTORIAL DEL FUENTE:'
+002050210622     A                                      DSPATR(HI)
+002060210622     A            P_FTE3        10A  O  2 24DSPATR(HI)
+002070210622     A                                  3 17'V=Ver Cambios'
+002080210622     A                                      COLOR(BLU)
